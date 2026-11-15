@@ -8,10 +8,12 @@ Import this project folder into Vercel, or deploy it from that folder with the V
 
 ## Enable Vercel Web Analytics
 
+This site uses Vercel’s **HTML** analytics setup (not the Next.js `@vercel/analytics` package). `public/assets/site.js` loads `/_vercel/insights/script.js` on your deployed domain.
+
 1. In your Vercel project, open **Analytics** and select **Enable**.
-2. Copy the URL used in the `src` attribute of Vercel's HTML setup snippet.
-3. Set `analyticsScriptUrl` at the top of `public/assets/site.js` to that URL.
-4. Redeploy, visit your deployed site, and check the Analytics dashboard.
+2. Redeploy (required so Vercel adds the `/_vercel/insights/*` routes).
+3. Visit the live site, click between pages, and confirm requests to `/_vercel/insights/view` in the browser network tab.
+4. Open **Analytics** in the Vercel dashboard to see data (it may take a short time after the first visits).
 
 Vercel setup guide: https://vercel.com/docs/analytics/quickstart
 
