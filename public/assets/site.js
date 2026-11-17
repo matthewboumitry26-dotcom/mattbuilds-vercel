@@ -1,17 +1,14 @@
-// Vercel Web Analytics (HTML setup — no @vercel/analytics package)
-// Enable Web Analytics in the Vercel project, then redeploy.
-const isLocalPreview =
-  location.protocol === 'file:' ||
-  location.hostname === 'localhost' ||
-  location.hostname === '127.0.0.1';
+// Vercel Web Analytics
+// Enable Web Analytics in the Vercel dashboard, then paste the script URL
+// displayed by Vercel for the HTML setup. Leave empty for local development.
+const analyticsScriptUrl = '';
 
-if (!isLocalPreview) {
+if (analyticsScriptUrl) {
   window.va = window.va || function () {
     (window.vaq = window.vaq || []).push(arguments);
   };
   const analyticsScript = document.createElement('script');
-  analyticsScript.defer = true;
-  analyticsScript.src = '/_vercel/insights/script.js';
+  analyticsScript.src = analyticsScriptUrl;
   document.head.append(analyticsScript);
 }
 
